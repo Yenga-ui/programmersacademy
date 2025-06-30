@@ -1,84 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programmers Academy</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
-    header {
-      background: #1a1a2e;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    p.tagline {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-      font-style: italic;
-    }
-    main {
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #0077cc;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .cta:hover {
-      background: #005fa3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalable Systems Academy | From Coding to Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0066cc;
+            --dark-blue: #003366;
+            --light-blue: #e6f2ff;
+            --accent-blue: #4da6ff;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-blue);
+            text-align: center;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background-color: #66b3ff;
+        }
+        
+        .code-snippet {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 3rem auto 0;
+            max-width: 800px;
+            text-align: left;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--dark-blue);
+        }
+        
+        .dark-section {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 5rem 0;
+        }
+        
+        .dark-section h2 {
+            color: var(--text-light);
+        }
+        
+        .level-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .level-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .level-number {
+            background-color: var(--accent-blue);
+            color: var(--dark-blue);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .portal-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 5rem 0;
+        }
+        
+        .portal-demo {
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .upload-box {
+            background-color: white;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .file-drop {
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .primary-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .feedback-box {
+            background-color: white;
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+        
+        .feedback-quote {
+            border-left: 3px solid var(--accent-blue);
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .feedback-quote p {
+            font-style: italic;
+        }
+        
+        .feedback-author {
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+        
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .portal-section {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Programmers Academy</h1>
-    <p class="tagline">Empowering Africa’s Next Generation of Developers</p>
-  </header>
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>Programmers Academy is a community-driven initiative that exists to teach, mentor, and empower aspiring software developers — especially in underserved communities across Africa. We believe that with the right tools, guidance, and a nurturing environment, anyone can learn to code and build solutions that change the world.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Scalable Systems Academy</h1>
+            <p class="tagline">Transform from coder to architect with our comprehensive system design curriculum</p>
+            <a href="#signup" class="cta-button">Start Learning Today</a>
+            
+            <div class="code-snippet">
+                <span style="color: #4da6ff;">// From this...</span><br>
+                <span>function add(a, b) {</span><br>
+                <span>&nbsp;&nbsp;return a + b;</span><br>
+                <span>}</span><br><br>
+                
+                <span style="color: #4da6ff;">// To this...</span><br>
+                <span>class DistributedCalculator {</span><br>
+                <span>&nbsp;&nbsp;constructor(nodes) {</span><br>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;this.nodes = nodes;</span><br>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;this.loadBalancer = new RoundRobinBalancer();</span><br>
+                <span>&nbsp;&nbsp;}</span><br>
+                <span>&nbsp;&nbsp;async compute(operations) {</span><br>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;// Distributed computation logic...</span><br>
+                <span>&nbsp;&nbsp;}</span><br>
+                <span>}</span>
+            </div>
+        </div>
     </section>
-
-    <section>
-      <h2>Mission</h2>
-      <p>To unlock digital potential by providing accessible, high-quality programming education.</p>
+    
+    <!-- Features Section -->
+    <section class="container">
+        <h2>Your Journey to System Mastery</h2>
+        
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Structured Curriculum</h3>
+                <p>Progress through our carefully designed learning path from basic concepts to advanced distributed systems.</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3>Hands-on Projects</h3>
+                <p>Build real systems with our project-based approach and get feedback from industry experts.</p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Task Portal</h3>
+                <p>Submit your solutions, track progress, and receive personalized feedback through our integrated portal.</p>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Mentor Network</h3>
+                <p>Connect with experienced system architects who can guide you through complex design challenges.</p>
+            </div>
+        </div>
     </section>
-
-    <section>
-      <h2>Get In Touch</h2>
-      <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/260XXXXXXXXX">+260 XXX XXX XXX</a></p>
-      <a class="cta" href="mailto:your-email@example.com">Join the Movement</a>
+    
+    <!-- Curriculum Section -->
+    <section class="dark-section">
+        <div class="container">
+            <h2>Our Learning Path</h2>
+            
+            <div>
+                <!-- Level 1 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-number">1</div>
+                        <h3 style="margin: 0; color: var(--text-light);">Foundations of Scalability</h3>
+                    </div>
+                    <ul style="margin: 0; padding-left: 1.5rem;">
+                        <li>Understanding system requirements</li>
+                        <li>Basic load balancing concepts</li>
+                        <li>Introduction to caching strategies</li>
+                        <li>Database fundamentals</li>
+                    </ul>
+                </div>
+                
+                <!-- Level 2 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-number">2</div>
+                        <h3 style="margin: 0; color: var(--text-light);">Intermediate System Design</h3>
+                    </div>
+                    <ul style="margin: 0; padding-left: 1.5rem;">
+                        <li>Microservices architecture</li>
+                        <li>Message queues and event-driven systems</li>
+                        <li>Distributed caching solutions</li>
+                        <li>Database scaling techniques</li>
+                    </ul>
+                </div>
+                
+                <!-- Level 3 -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <div class="level-number">3</div>
+                        <h3 style="margin: 0; color: var(--text-light);">Advanced Distributed Systems</h3>
+                    </div>
+                    <ul style="margin: 0; padding-left: 1.5rem;">
+                        <li>Consensus algorithms (Paxos, Raft)</li>
+                        <li>Distributed transactions</li>
+                        <li>Global system design</li>
+                        <li>Chaos engineering principles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
-  <footer>
-    &copy; 2025 Programmers Academy. All rights reserved.
-  </footer>
+    
+    <!-- Portal Section -->
+    <section class="container">
+        <h2>Student Task Portal</h2>
+        
+        <div class="portal-section">
+            <div>
+                <h3 style="color: var(--primary-blue); font-size: 1.8rem;">Submit and Track Your Progress</h3>
+                <p>Our integrated portal allows you to:</p>
+                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                    <li>Upload coding assignments and system design documents</li>
+                    <li>Receive automated feedback on your submissions</li>
+                    <li>Track your progress through the curriculum</li>
+                    <li>Communicate with mentors and peers</li>
+                    <li>Access personalized learning recommendations</li>
+                </ul>
+                <a href="#portal-demo" class="cta-button" style="display: inline-block; margin-top: 1rem;">See Portal Demo</a>
+            </div>
+            
+            <div class="portal-demo">
+                <div class="upload-box">
+                    <h4 style="margin-top: 0; color: var(--primary-blue);">Upload New Task</h4>
+                    <div class="file-drop">
+                        <p>Drag and drop files here or click to browse</p>
+                    </div>
+                    <div class="button-group">
+                        <button class="primary-btn">Submit</button>
+                        <button class="secondary-btn">Save Draft</button>
+                    </div>
+                </div>
+                
+                <div class="feedback-box">
+                    <h4 style="margin-top: 0; color: var(--primary-blue);">Recent Feedback</h4>
+                    <div class="feedback-quote">
+                        <p>"Your load balancer implementation shows good understanding of basic concepts. Consider adding health checks for your backend services to improve resilience."</p>
+                        <p class="feedback-author">- Mentor Review</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Ready to Scale Your Skills?</h3>
+            <a href="#signup" class="cta-button">Join Scalable Systems Academy</a>
+            <p style="margin-top: 2rem;">© 2023 Scalable Systems Academy. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
