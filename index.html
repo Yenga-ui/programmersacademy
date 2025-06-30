@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scalable Systems Academy | From Coding to Architecture</title>
+    <title>Programmers Academy | From Coding to Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -23,10 +23,61 @@
             line-height: 1.6;
         }
         
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-blue);
+        }
+        
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
             color: var(--text-light);
-            padding: 5rem 2rem;
+            padding: 7rem 2rem 5rem;
             text-align: center;
         }
         
@@ -233,6 +284,26 @@
                 grid-template-columns: 1fr;
             }
             
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             h1 {
                 font-size: 2.5rem;
             }
@@ -244,10 +315,25 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Programmers Academy</a>
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-links">
+                <a href="#features">Curriculum</a>
+                <a href="#portal">Student Portal</a>
+                <a href="#mentorship">Mentorship</a>
+                <a href="#projects">Projects</a>
+                <a href="#signup" class="cta-button" style="padding: 0.5rem 1rem; font-size: 1rem;">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Scalable Systems Academy</h1>
+            <h1>Programmers Academy</h1>
             <p class="tagline">Transform from coder to architect with our comprehensive system design curriculum</p>
             <a href="#signup" class="cta-button">Start Learning Today</a>
             
@@ -272,7 +358,7 @@
     </section>
     
     <!-- Features Section -->
-    <section class="container">
+    <section class="container" id="features">
         <h2>Your Journey to System Mastery</h2>
         
         <div class="features-grid">
@@ -358,7 +444,7 @@
     </section>
     
     <!-- Portal Section -->
-    <section class="container">
+    <section class="container" id="portal">
         <h2>Student Task Portal</h2>
         
         <div class="portal-section">
@@ -402,9 +488,30 @@
     <footer>
         <div class="container">
             <h3>Ready to Scale Your Skills?</h3>
-            <a href="#signup" class="cta-button">Join Scalable Systems Academy</a>
-            <p style="margin-top: 2rem;">© 2023 Scalable Systems Academy. All rights reserved.</p>
+            <a href="#signup" class="cta-button">Join Programmers Academy</a>
+            <p style="margin-top: 2rem;">© 2023 Programmers Academy. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
