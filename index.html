@@ -13,6 +13,8 @@
             --accent-blue: #4da6ff;
             --text-dark: #333;
             --text-light: #f8f9fa;
+            --success-green: #28a745;
+            --warning-yellow: #ffc107;
         }
         
         body {
@@ -98,6 +100,11 @@
             margin-bottom: 3rem;
             color: var(--dark-blue);
             text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
         }
         
         .tagline {
@@ -240,6 +247,11 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .primary-btn:hover {
+            background-color: #0056b3;
         }
         
         .secondary-btn {
@@ -249,6 +261,11 @@
             padding: 0.5rem 1rem;
             border-radius: 4px;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .secondary-btn:hover {
+            background-color: var(--light-blue);
         }
         
         .feedback-box {
@@ -272,11 +289,164 @@
             color: var(--dark-blue);
         }
         
+        /* Submission Form */
+        .submission-form {
+            background-color: var(--light-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .file-requirements {
+            background-color: rgba(0,0,0,0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            background-color: #f8f9fa;
+            padding: 5rem 0;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary-blue);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin: 1rem 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--success-green);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Value Proposition */
+        .value-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .value-card {
+            padding: 2rem;
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
         footer {
             background-color: var(--dark-blue);
             color: var(--text-light);
             padding: 3rem 0;
             text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
@@ -322,9 +492,9 @@
             <button class="mobile-menu-btn">☰</button>
             <div class="nav-links">
                 <a href="#features">Curriculum</a>
-                <a href="#portal">Student Portal</a>
-                <a href="#mentorship">Mentorship</a>
-                <a href="#projects">Projects</a>
+                <a href="#portal">Submit Task</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#value">Our Values</a>
                 <a href="#signup" class="cta-button" style="padding: 0.5rem 1rem; font-size: 1rem;">Sign Up</a>
             </div>
         </div>
@@ -335,7 +505,7 @@
         <div class="container">
             <h1>Programmers Academy</h1>
             <p class="tagline">Transform from coder to architect with our comprehensive system design curriculum</p>
-            <a href="#signup" class="cta-button">Start Learning Today</a>
+            <a href="#portal" class="cta-button">Submit Your First Task</a>
             
             <div class="code-snippet">
                 <span style="color: #4da6ff;">// From this...</span><br>
@@ -392,93 +562,151 @@
         </div>
     </section>
     
-    <!-- Curriculum Section -->
-    <section class="dark-section">
-        <div class="container">
-            <h2>Our Learning Path</h2>
+    <!-- Task Submission Section -->
+    <section class="container" id="portal">
+        <h2>Submit Your Task</h2>
+        
+        <div class="submission-form">
+            <h3>Task Submission Form</h3>
+            <p>Submit your completed task for review and feedback from our expert mentors.</p>
             
-            <div>
-                <!-- Level 1 -->
-                <div class="level-card">
-                    <div class="level-header">
-                        <div class="level-number">1</div>
-                        <h3 style="margin: 0; color: var(--text-light);">Foundations of Scalability</h3>
-                    </div>
-                    <ul style="margin: 0; padding-left: 1.5rem;">
-                        <li>Understanding system requirements</li>
-                        <li>Basic load balancing concepts</li>
-                        <li>Introduction to caching strategies</li>
-                        <li>Database fundamentals</li>
-                    </ul>
+            <form id="taskForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
-                <!-- Level 2 -->
-                <div class="level-card">
-                    <div class="level-header">
-                        <div class="level-number">2</div>
-                        <h3 style="margin: 0; color: var(--text-light);">Intermediate System Design</h3>
-                    </div>
-                    <ul style="margin: 0; padding-left: 1.5rem;">
-                        <li>Microservices architecture</li>
-                        <li>Message queues and event-driven systems</li>
-                        <li>Distributed caching solutions</li>
-                        <li>Database scaling techniques</li>
-                    </ul>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
-                <!-- Level 3 -->
-                <div class="level-card">
-                    <div class="level-header">
-                        <div class="level-number">3</div>
-                        <h3 style="margin: 0; color: var(--text-light);">Advanced Distributed Systems</h3>
+                <div class="form-group">
+                    <label for="task">Task Name/Number</label>
+                    <input type="text" id="task" name="task" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Notes to Mentor (Optional)</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="files">Upload Your Files</label>
+                    <div class="file-requirements">
+                        <p><strong>Accepted formats:</strong> .zip, .pdf, .md, .txt, .py, .js, .java</p>
+                        <p><strong>Max size:</strong> 10MB per file</p>
                     </div>
-                    <ul style="margin: 0; padding-left: 1.5rem;">
-                        <li>Consensus algorithms (Paxos, Raft)</li>
-                        <li>Distributed transactions</li>
-                        <li>Global system design</li>
-                        <li>Chaos engineering principles</li>
+                    <input type="file" id="files" name="files" multiple required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="button-group">
+                        <button type="submit" class="primary-btn">Submit Task</button>
+                        <button type="reset" class="secondary-btn">Clear Form</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div id="formSuccess" style="display: none; background-color: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 4px; margin-top: 1rem; text-align: center;">
+                <p style="color: var(--success-green); font-weight: bold;">✅ Your task has been submitted successfully! You'll receive a confirmation email shortly.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2>Transparent Pricing</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">We offer flexible pricing options to suit different needs and budgets. Pay only for the feedback you need.</p>
+            
+            <div class="pricing-cards">
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <h3>Basic Review</h3>
+                    <div class="price">$19<span> per task</span></div>
+                    <ul class="pricing-features">
+                        <li>Detailed code review</li>
+                        <li>Written feedback</li>
+                        <li>Architecture suggestions</li>
+                        <li>Turnaround: 3-5 days</li>
                     </ul>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID_BASIC">
+                        <button type="submit" class="primary-btn" style="width: 100%;">Choose Basic</button>
+                    </form>
+                </div>
+                
+                <!-- Popular Plan -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Premium Review</h3>
+                    <div class="price">$39<span> per task</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in Basic, plus:</li>
+                        <li>Video walkthrough of feedback</li>
+                        <li>30-min follow-up Q&A session</li>
+                        <li>Performance optimization tips</li>
+                        <li>Turnaround: 2-3 days</li>
+                    </ul>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID_PREMIUM">
+                        <button type="submit" class="primary-btn" style="width: 100%; background-color: var(--success-green);">Choose Premium</button>
+                    </form>
+                </div>
+                
+                <!-- Comprehensive Plan -->
+                <div class="pricing-card">
+                    <h3>Comprehensive Package</h3>
+                    <div class="price">$99<span> for 3 tasks</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in Premium, plus:</li>
+                        <li>Priority turnaround (1-2 days)</li>
+                        <li>Personalized learning plan</li>
+                        <li>Architecture diagram review</li>
+                        <li>Save 15% compared to single tasks</li>
+                    </ul>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID_PACKAGE">
+                        <button type="submit" class="primary-btn" style="width: 100%;">Choose Package</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Portal Section -->
-    <section class="container" id="portal">
-        <h2>Student Task Portal</h2>
-        
-        <div class="portal-section">
-            <div>
-                <h3 style="color: var(--primary-blue); font-size: 1.8rem;">Submit and Track Your Progress</h3>
-                <p>Our integrated portal allows you to:</p>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>Upload coding assignments and system design documents</li>
-                    <li>Receive automated feedback on your submissions</li>
-                    <li>Track your progress through the curriculum</li>
-                    <li>Communicate with mentors and peers</li>
-                    <li>Access personalized learning recommendations</li>
-                </ul>
-                <a href="#portal-demo" class="cta-button" style="display: inline-block; margin-top: 1rem;">See Portal Demo</a>
-            </div>
+    <!-- Value Proposition Section -->
+    <section class="value-section" id="value">
+        <div class="container">
+            <h2>Our Learning Values</h2>
+            <p style="max-width: 800px; margin: 0 auto 2rem;">We're committed to ethical education that empowers rather than exploits. Here's what makes us different:</p>
             
-            <div class="portal-demo">
-                <div class="upload-box">
-                    <h4 style="margin-top: 0; color: var(--primary-blue);">Upload New Task</h4>
-                    <div class="file-drop">
-                        <p>Drag and drop files here or click to browse</p>
-                    </div>
-                    <div class="button-group">
-                        <button class="primary-btn">Submit</button>
-                        <button class="secondary-btn">Save Draft</button>
-                    </div>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-icon">💯</div>
+                    <h3>Pay-Per-Task</h3>
+                    <p>No subscriptions or hidden fees. Pay only when you submit work for review.</p>
                 </div>
                 
-                <div class="feedback-box">
-                    <h4 style="margin-top: 0; color: var(--primary-blue);">Recent Feedback</h4>
-                    <div class="feedback-quote">
-                        <p>"Your load balancer implementation shows good understanding of basic concepts. Consider adding health checks for your backend services to improve resilience."</p>
-                        <p class="feedback-author">- Mentor Review</p>
-                    </div>
+                <div class="value-card">
+                    <div class="value-icon">🔓</div>
+                    <h3>Free Learning Resources</h3>
+                    <p>Access our curriculum and community forums without paying a cent.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⚖️</div>
+                    <h3>Money-Back Guarantee</h3>
+                    <p>If our feedback doesn't help you improve, we'll refund your payment.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Progressive Pricing</h3>
+                    <p>Discounts for students and those from developing countries.</p>
                 </div>
             </div>
         </div>
@@ -487,8 +715,16 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <h3>Ready to Scale Your Skills?</h3>
-            <a href="#signup" class="cta-button">Join Programmers Academy</a>
+            <h3>Ready to Elevate Your Skills?</h3>
+            <a href="#portal" class="cta-button">Submit Your First Task</a>
+            
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+            
             <p style="margin-top: 2rem;">© 2023 Programmers Academy. All rights reserved.</p>
         </div>
     </footer>
@@ -512,6 +748,58 @@
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
+        
+        // Form submission handling
+        const form = document.getElementById('taskForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                // In a real implementation, this would be handled by Formspree
+                // This is just for the demo
+                e.preventDefault();
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+                // Scroll to show success message
+                formSuccess.scrollIntoView({ behavior: 'smooth' });
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    form.style.display = 'block';
+                    formSuccess.style.display = 'none';
+                    form.reset();
+                }, 5000);
+            });
+        }
+        
+        // File upload validation
+        const fileInput = document.getElementById('files');
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                const files = this.files;
+                const maxSize = 10 * 1024 * 1024; // 10MB
+                const allowedTypes = ['application/zip', 'application/pdf', 'text/plain', 'text/markdown', 'application/javascript', 'text/x-python', 'text/x-java-source'];
+                
+                for (let i = 0; i < files.length; i++) {
+                    if (files[i].size > maxSize) {
+                        alert('File ' + files[i].name + ' is too large. Max size is 10MB.');
+                        this.value = '';
+                        return;
+                    }
+                    
+                    // Check file extension since browser detection is unreliable
+                    const ext = files[i].name.split('.').pop().toLowerCase();
+                    const allowedExts = ['zip', 'pdf', 'txt', 'md', 'js', 'py', 'java'];
+                    
+                    if (!allowedExts.includes(ext)) {
+                        alert('File type not allowed: ' + files[i].name);
+                        this.value = '';
+                        return;
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
